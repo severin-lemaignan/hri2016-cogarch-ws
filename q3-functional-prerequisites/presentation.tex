@@ -24,6 +24,12 @@
 \usetikzlibrary{mindmap,backgrounds,positioning}
 
 \graphicspath{{figs/}}
+\setbeamercolor{refToContribCol}{bg=hriSec1Comp,fg=white}
+\newcommand{\refToContrib}[1]{%
+    \begin{beamercolorbox}[wd=\linewidth,ht=2ex,dp=0.7ex]{refToContribCol}%
+    \hspace{0.5em}$\hookrightarrow$ #1%
+    \end{beamercolorbox}%
+}%
 
 %--------------------------------------------------------------------------
 % General presentation settings
@@ -71,7 +77,7 @@ architecture to support social interaction?}
                 child[concept color=hriSec2Dark,text=white] { node[concept]{Attention} }
                 child[concept color=hriSec2CompDark,text=white] { node[concept] (dialog) {Communication} }
             }
-            child[concept color=hriSec2Comp,text=white] { node[concept] (krr) {Knowledge Manipulation} 
+            child[concept color=hriSec2Comp,text=white] { node[concept] (krr) {Knowledge Representation} 
                 [clockwise from=-30]
                 child[concept color=hriSec1CompDark,text=white] { node[concept] (memory) {Memory} }
                 child[concept color=hriSec3CompDark,text=white] { node[concept] (tom) {Theory of Mind} }
@@ -146,7 +152,7 @@ architecture to support social interaction?}
                 child[concept color=hriSec2Dark,text=white] { node[concept]{Attention}; }
                 child[concept color=hriSec2CompDark,text=white] { node[concept] (dialog) {Communication} ;};
             }
-            child[concept color=hriSec2Comp,text=white] { node[concept] (krr) {Knowledge Manipulation} 
+            child[concept color=hriSec2Comp,text=white] { node[concept] (krr) {Knowledge Representation} 
                 [clockwise from=-30]
                 child[concept color=hriSec1CompDark,text=white] { node[concept] (memory) {Memory}; }
                 child[concept color=hriSec3CompDark,text=white] { node[concept] (tom) {Theory of Mind}; };
@@ -178,7 +184,7 @@ architecture to support social interaction?}
                 child[concept color=hriSec2Dark,text=white] { node[concept]{Attention}; }
                 child[concept color=hriSec2CompDark,text=white] { node[concept] (dialog) {Communication} ;};
             }
-            child[concept color=white,text=gray] { node[concept] (krr) {Knowledge Manipulation} 
+            child[concept color=white,text=gray] { node[concept] (krr) {Knowledge Representation} 
                 [clockwise from=-30]
                 child[concept color=white,text=gray] { node[concept] (memory) {Memory}; }
                 child[concept color=hriSec3CompDark,text=white] { node[concept] (tom) {Theory of Mind}; };
@@ -249,7 +255,7 @@ architecture to support social interaction?}
             child[concept color=hriSec3Comp,text=black, grow=-120] { node[concept] (comm) {Communication} 
                 [counterclockwise from=180]
                 child[concept color=hriSec1CompDark,text=white] { node[concept] {Verbal} }
-                child[concept color=hriSec1CompDark,text=white] { node[concept] {Non-verbal} }
+                child[concept color=hriSec1Dark,text=white] { node[concept] {Non-verbal} }
             }
             child[concept color=hriSec3,text=white,grow=180] { node[concept] (dynamics) {Interaction Dynamics} 
                 [clockwise from=180]
@@ -295,15 +301,20 @@ architecture to support social interaction?}
 
     {\Medium Emotions}
 
-    Facial features [CITE?]; non-verbal acoustic features [CITE?]; verbal features (sentient analysis)
+    Recognition {\tiny \Medium facial, non-verbal acoustic, verbal features / sentient analysis}\\
+    Interpretation {\tiny \Medium empathy,...}
 
     {\Medium Attention}
 
-    Visual attention
+    Visual attention\\
+    Joint attention
 
     {\Medium Mental Modelling}
 
-    User modelling; (perceptual) Theory of Mind~\cite{lemaignan2015mutual};
+    User modelling\\
+    (perceptual) theory of mind~\cite{lemaignan2015mutual}
+
+    \refToContrib{Alexis' contribution}
 
     \end{multicols}
 \end{frame}
@@ -334,7 +345,8 @@ architecture to support social interaction?}
 
     {\Medium Common-sense}
 
-    Web-scrapping~\cite{tenorth2010understanding}
+    Hand-coded ontologies\\
+    Automated web-scrapping~\cite{tenorth2010understanding}
 
     {\Medium Social context}
 
@@ -342,7 +354,12 @@ architecture to support social interaction?}
 
     {\Medium Social Rules}
 
-    Proxemics; ?
+    Proxemics\\
+    Social norms\\
+    Moral norms\\
+    \refToContrib{Vasanth's contribution}
+    Ethics
+
 
     \end{multicols}
 \end{frame}
@@ -362,7 +379,7 @@ architecture to support social interaction?}
             node[concept] (comm) {Communication} 
                 [counterclockwise from=-30]
                 child[concept color=hriSec1CompDark,text=white] { node[concept] {Verbal} }
-                child[concept color=hriSec1CompDark,text=white] { node[concept] {Non-verbal} };
+                child[concept color=hriSec1Dark,text=white] { node[concept] {Non-verbal} };
 
         \end{tikzpicture}
     }
@@ -371,12 +388,13 @@ architecture to support social interaction?}
 
 
     Review~\cite{mavridis2015review}:
-    \begin{quote}
-        Breaking the ``simple commands only'' barrier;\\
-        Mixed initiative dialogue;\\
-        Situated language and the symbol grounding problem;\\
-        Motor correlates and Non-Verbal Communication...
-    \end{quote}
+    \begin{itemize}
+        \item Breaking the ``simple commands only'' barrier;
+        \item Mixed initiative dialogue;
+        \item Symbol grounding problem;
+        \item Motor correlates
+        \item ...
+    \end{itemize}
 
 
     {\Medium Non-verbal}
@@ -460,33 +478,34 @@ architecture to support social interaction?}
 \end{frame}
 
 \begin{frame}{Discussion directions}
+    
+
     \begin{itemize}
-        \item Is it the right approach?
-        \item Missing functional requirements for social interaction?
-        \item Relations between functions? Functional entanglement?
-        \item Evaluations? Tests? Benchmarks? At what level are they useful? (single function? group of functions? whole architecture only?)
+        \item Is listing functional requirements the right approach?\\ {\Medium surface competencies $\Rightarrow$ frame issue?}
+        \item What are the missing ones for social interaction?\\ {\Medium imitation, self-awareness,...?}
+        \item Functions interdependencies? Functional entanglement?
+        \item Reference tasks? Metrics? Benchmarks? At what level are they useful? (single function? group of functions? whole architecture only?)
     \end{itemize}
+
+    40 minutes of open discussion, plus:
+    \refToContrib{Vasanth's presentation (15 min)}
+    \refToContrib{Alexis' presentation (15 min)}
+
 \end{frame}
 
 
 \begin{frame}{Bibliography}
 \begin{thebibliography}{10}
 
-    \beamertemplatebookbibitems
-    \bibitem{Oppenheim2009}
-    Alan~V.~Oppenheim
-    \newblock \doublequoted{Discrete-Time Signal Processing}
-    \newblock Prentice Hall Press, 2009
-
     \beamertemplatearticlebibitems
     \bibitem{lemaignan2015mutual}
-    Séverin Lemaignan, Pierre Dillenbourg
+    S. Lemaignan, P. Dillenbourg
     \newblock \doublequoted{Mutual Modelling: Inspiration for the Next Steps}
     \newblock 2015
 
     \beamertemplatearticlebibitems
     \bibitem{tenorth2010understanding}
-    Moritz Tenorth, Daniel Nyga, Michael Beetz
+    M. Tenorth, D. Nyga, M. Beetz
     \newblock \doublequoted{Understanding and Executing Instructions for Everyday Manipulation Tasks
     from the World Wide Web}
     \newblock 2010
@@ -501,7 +520,7 @@ architecture to support social interaction?}
 
     \beamertemplatearticlebibitems
     \bibitem{kruijff2010situated}
-    G.-J. M. Kruijff, P. Lison, T. Benjamin, H. Jacobsson, H. Zender, I. Kruijff-Korbayová, N. Hawes
+    G.-J. M. Kruijff \emph{et al.}
     \newblock \doublequoted{Situated dialogue processing for human-robot interaction}
     \newblock 2010
 
