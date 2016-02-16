@@ -65,13 +65,14 @@ cognitive architectures would likely fail, and why?}
     Why would we want to work out scenarios?
 
     \begin{itemize}
-        \item {\Medium evidence the need} for (socio-)cognitive architectures
-        \item build up a research agenda
-        \item assess the progress
+        \item {\Medium evidence the need} for (socio-)cognitive architectures in
+            robotics
+        \item {\Medium build up a research agenda}
+        \item {\Medium measure the progress}
     \end{itemize}
 
-    \only<2>{
-    As it turns out, it is rather hard to come up with compelling interaction
+    \uncover<2>{
+    And, as it turns out, it is rather hard to come up with compelling interaction
     scenarios...
     }
 
@@ -79,11 +80,11 @@ cognitive architectures would likely fail, and why?}
 
 \begin{frame}{Why?}
 
-    Less far-reaching:
+    Less far-reaching objective:
     \vspace{1em}
 
-    \highlight{\centering An interaction scenario to {\Medium push (and break!)} our current architectures, and
-    {\Medium inform} us on the choice of computational models}
+    \highlight{\centering Interaction scenarios to {\Medium push (and break!)
+        our current architectures}, and {\Medium inform} us on the choice of computational models}
 
 \end{frame}
 
@@ -102,19 +103,33 @@ cognitive architectures would likely fail, and why?}
 \end{frame}
 
 
-\begin{frame}{scenario -- task -- benchmark}
+\begin{frame}{}
 
 {\Medium scenario? task? benchmark?}
 
 \begin{itemize}
-    \item<2-> {\Medium toy scenarios}: do not say much on real interactions
-    \item<3-> {\Medium ``in the wild''}: rich, but hard to replicate (neither
-        locally nor in other labs)
+    \item<2-> {\Medium toy scenarios}: do not say much about real interactions
+    \item<3-> {\Medium ``in the wild''}: rich \& certainly necessary, but also hard to replicate (either
+        locally or in other labs) and time consuming
     \item<4-> {\Medium ``unit-tasks''} (benchmarks): risk of developing/tuning a system for
         a single purpose -- contradict the mere idea of cognitive architectures
     \item<5-> The scenario {\Medium tells a story}: it projects into an
-        usage. The resulting ``cognitive noise'' may or may not be desirable.
+        usage\\ $\Rightarrow$ resulting ``cognitive noise'' may or may not be desirable
 \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Desirable meta-features}
+
+    \begin{itemize}
+        \item easy to reproduce in different locations (location, culture,
+            platform agnostic)
+        \item grounded in existing literature (socio-cognitive psychology, developmental
+            psychology, neurosciences, etc.)
+        \item should exhibit all the features of a good experimental protocol,
+            including a clear baseline (typically a human baseline)
+        \item hard enough to be challenging!
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Framing}
@@ -125,18 +140,73 @@ cognitive architectures would likely fail, and why?}
 
 \end{frame}
 
-\begin{frame}{Desirable meta-features}
+\begin{frame}{Check-list for a good interaction scenario}
+\scriptsize
+    \begin{multicols}{2}
 
-    \begin{itemize}
-        \item easy to reproduce in different locations (location, culture
-            agnostic)
-        \item grounded in the literature (socio-cognitive psychology, developmental
-            psychology, neurosciences, etc.)
-        \item should exhibit all the features of a good experimental protocol,
-            including a clear baseline (typically a human baseline)
-        \item hard enough to be challenging!
-    \end{itemize}
+    {\Medium Nature of the task}\\
+    $\square$ requires social interaction\\
+    $\square$ mirrors/models natural interactions\\
+    $\square$ tests more than one cognitive function\\
+
+
+    {\Medium Experimental protocol}\\
+    $\square$ based on existing, published protocol\\
+    Which one: \line(1,0){80}\\
+    $\square$ well framed: actual cognitive requirements match what is tested\\
+    $\square$ has clear experimental conditions\\
+    $\square$ has a meaningful baseline\\
+
+    {\Medium Reproducibility}\\
+    $\square$ meaningful for a range of robots\\
+    $\square$ does not require an overspecific participant population\\
+    $\square$ readily reproducible task environment\\
+
+    {\Medium Impact}\\
+    $\square$ is socially relevant\\
+    $\square$ the intend of the task can be explained in one sentence\\
+    $\square$ it is beyond the state-of-art\\
+
+    {\Medium Required socio-cognitive functions}
+
+    \begin{multicols}{2}
+    $\square$ Perception\\
+    {\tiny
+    \hspace*{0.4cm}$\square$ emotions\\
+    \hspace*{0.4cm}$\square$ attention\\
+    \hspace*{0.4cm}$\square$ mentalization\\
+    }
+    $\square$ Social knowledge\\
+    {\tiny
+    \hspace*{0.4cm}$\square$ common-sense\\
+    \hspace*{0.4cm}$\square$ social ctxt\\
+    \hspace*{0.4cm}$\square$ social rules\\
+    }
+    \vfill
+    \columnbreak
+    $\square$ Communication\\
+    {\tiny
+    \hspace*{0.4cm}$\square$ verbal\\
+    \hspace*{0.4cm}$\square$ non-verbal\\
+    }
+    $\square$ Dynamics\\
+    {\tiny
+    \hspace*{0.2cm}$\square$ long-term interaction\\
+    }
+    $\square$ Actions\\
+    {\tiny
+    \hspace*{0.4cm}$\square$ action recognition\\
+    \hspace*{0.4cm}$\square$ joint actions\\
+    }
+    \end{multicols}
+
+
+
+
+    \end{multicols}
+
 \end{frame}
+
 
 \begin{frame}{A few examples}
     \begin{itemize}
@@ -163,7 +233,7 @@ cognitive architectures would likely fail, and why?}
         \item Should we build an experimental agenda for robotic social cognition?
         \item What is the ideal ``cognitive breadth'' for a good scenario? (how many
             different cognitive skills are required?)
-        \item What are these scenarios!!?
+        \item What are these scenarios!?
     \end{itemize}
 \end{frame}
 
