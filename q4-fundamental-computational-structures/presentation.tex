@@ -24,12 +24,21 @@
 \usetikzlibrary{fpu,calc,fit,mindmap,backgrounds,positioning}
 
 \graphicspath{{figs/}}
+
 \setbeamercolor{refToContribCol}{bg=hriSec1Comp,fg=white}
+\setbeamercolor{highlightCol}{bg=hriSec3,fg=white}
+
 \newcommand{\refToContrib}[1]{%
     \begin{beamercolorbox}[wd=\linewidth,ht=2ex,dp=0.7ex]{refToContribCol}%
     \hspace{0.5em}$\hookrightarrow$ #1%
     \end{beamercolorbox}%
 }%
+\newcommand{\highlight}[1]{%
+    \begin{beamercolorbox}[wd=\linewidth,dp=0.7ex]{highlightCol}%
+    #1%
+    \end{beamercolorbox}%
+}%
+
 
 %--------------------------------------------------------------------------
 % General presentation settings
@@ -53,6 +62,19 @@ symbolic, sub-symbolic, hybrid, ...)?}
 
 \maketitle
 
+\begin{frame}{General perspectives}
+
+     \highlight{\centering Support thinking about robot programming \\in term of socio-cognitive skills}
+
+    \uncover<2>{
+        \vspace{2em}
+        or...\\
+        \vspace{1em}
+
+        \highlight{\centering Support modelling (human) social cognition\\\scriptsize(applicability to robots would be nice as well)}
+    }
+
+\end{frame}
 %{
 %\paper{Lemaignan et al., {\Medium Towards Grounding Human-Robot Interaction}, 2012}
 
@@ -61,11 +83,11 @@ symbolic, sub-symbolic, hybrid, ...)?}
 \resizebox{\paperwidth}{!}{%
 
 \tikzset{subpart/.style={draw, font=\scriptsize, fill opacity=0.5, text opacity=1, fill=white!50}}
-
 \begin{tikzpicture}[
     >=latex,
     every edge/.style={draw, very thick},
     skill/.style={draw, rounded corners, align=center, inner sep=5pt, fill=black!20},
+    stmt/.style={align=center, font=\Medium},
     label/.style={midway, align=center, font=\scriptsize, fill=white}]
 
   %%% ORO
@@ -96,7 +118,7 @@ symbolic, sub-symbolic, hybrid, ...)?}
   %%% SHARY
   \node at (4,4.5)[skill, fill=hriSec1Comp!50] (shary) {%
       \begin{tikzpicture}
-        \node at (0,0) (exec) {Execution Controller};
+        \node at (0,0) (exec) {\Medium Execution Controller};
         \node [subpart, below=0.2 of exec.south west, anchor=north west] (plans) {Goal \& Plans \\ management};
         \node [subpart, right=0.2 of plans] (sit-asses) {Situation assessment \\ and context management};
         \node [subpart, right=0.2 of sit-asses] {Action instantiation, \\ execution and monitoring};
@@ -119,24 +141,51 @@ symbolic, sub-symbolic, hybrid, ...)?}
   %%% Relations between components
   \path (shary.340) edge [<->, bend left] node[label] {motion plan \\ requests} (mhp);
   \path (shary.west) edge [<->, bend right] node[label] {shared \\ plans} (hatp);
-  \path (hatp) edge [<->, bend right] node[label] {world model and \\ agents beliefs} (oro.170);
-  \path (dialogs) edge [<->, bend left] node[label] {natural language \\ grounding} (oro.190);
-  \path (spark.100) edge [->, bend right] node[label] {symbolic \\ facts} (oro);
+  \path (hatp) edge [<->, bend right] node[label] (domain) {world model and \\ agents beliefs} (oro.170);
+  \path (dialogs) edge [<->, bend left] node[label] (nlp) {natural language \\ grounding} (oro.190);
+  \path (spark.100) edge [->, bend right] node[label] (symfact) {symbolic \\ facts} (oro);
   \path (spark.5) edge [->, bend right] node[label] {environment\\model} (mhp);
-  \path (shary) edge [<->, bend left] node[label] {events, \\ world model and \\ agents beliefs} (oro);
+  \path (shary) edge [<->, bend left] node[label] (evts) {events, \\ world model and \\ agents beliefs} (oro);
   \path (shary) edge [<->, bend left] node[label] {action monitoring \\ and management of \\ position hypotheses} (spark);
   \path (lowlevel) edge [->] (spark);
   \path (lowlevel.east) edge [<-, bend right=80, looseness=1.5] node[label] {atomic\\actions} (shary.east);
 
+  \only<2>{
+      \fill[fill opacity=.7,white] (current bounding box.north west) rectangle (current bounding box.south east);
+      \node[stmt] at (symfact) {isOn(bottle, table)\\lookAt(human1, bottle)};
+      \node[stmt] at (nlp) {lookAt(human1, ?obj)\\desires(human1, PickUp, bottle)};
+      \node[stmt] at (domain) {isAvailable(?gripper) $\wedge$ isA(?gripper, Gripper)\\isOn(bottle, ?obj)};
+      \node[stmt] at (evts) {isA(action23425, PickUp) $\wedge$ currentlyPerforming(action23425)};
+  }
 \end{tikzpicture}
 }
-\scriptsize Taken from \cite{lemaignan2012towards}
+\begin{flushright}
+\scriptsize -- taken from \cite{lemaignan2012towards}
+\end{flushright}
 \end{frame}
 %}
 
-%{
-%    \paper{Morse et al., {\Medium Epigenetic Robotics Architecture}, 2010] ---
-%    [Baxter et al., {\Medium Cognitive Architecture for HRI:\ldots}, 2013}
+\begin{frame}{Highlights}
+
+    \begin{itemize}
+        \item {\Medium explicit}, {\Medium high-level semantics} (good for NLP!)
+        \item appreciated by software engineers (loose coupling)
+        \item {\Medium well-established theoretical grounds} in formal logics
+    \end{itemize}
+    
+    \only<2>{
+
+    \begin{itemize}
+        \item {\Medium very successful} so far
+        \item {\Medium fundamentally top-down} approach $\Rightarrow$ somewhat difficult to match with
+            the constructive approach of developmental psychology
+        \item {\Medium learning} is an {\Medium after-thought}
+        \item {\Medium hard to deal with time} (chronicles, fluents,...?)
+    \end{itemize}
+    }
+
+
+\end{frame}
 
 \begin{frame}{Sub-symbolic architectures}
 
@@ -161,9 +210,9 @@ symbolic, sub-symbolic, hybrid, ...)?}
                 \foreach \x in {-3, -2, ..., 3}
                 \foreach \y in {3, 2, ..., -3}{
                     %\node[draw, circle, shading=sphere] at ({(\x + 0.4*\y)/2.2}, {\y/4}) {};
-                    \pgfmathsetcounter{colour}{((cos(deg(\x)) * cos(deg(\y)))+1)*50}
+                    \pgfmathsetcounter{colour}{((sin(deg(\x)) * sin(deg(\y)))+1)*50}
                     %\shade[ball color=green!\thecolour!red] ({(\x + 0.4*\y)/2.2}, {\y/4}) circle (.2cm);
-                    \node[input, fill=green!\thecolour!red] at ({(\x + 0.4*\y)/2.2}, {\y/4}) {};
+                    \node[input, fill=hriSec2!\thecolour!hriSec3] at ({(\x + 0.4*\y)/2.2}, {\y/4}) {};
                 };
             \end{tikzpicture}%
         }
@@ -187,15 +236,15 @@ symbolic, sub-symbolic, hybrid, ...)?}
             \node[below=of somD] (labD) {Input D};
             \node[right=of hub] (labHub) {Hub};
 
-            \path (hub) edge [<->] (somA);
-            \path (hub) edge [<->] (somB);
-            \path (hub) edge [<->] (somC);
-            \path (hub) edge [<->] (somD);
-
             \path (labA) edge [->] (somA);
             \path (labB) edge [->] (somB);
             \path (labC) edge [->] (somC);
             \path (labD) edge [->] (somD);
+
+            \path (hub) edge [<->] (somA);
+            \path (hub) edge [<->] (somB);
+            \path (hub) edge [<->] (somC);
+            \path (hub) edge [<->] (somD);
 
         \end{tikzpicture}%
     }
@@ -212,20 +261,20 @@ symbolic, sub-symbolic, hybrid, ...)?}
 
             % draw the units
             \foreach \x [count=\xi] in {0, 120, 240}
-            \foreach \y [count=\yi] in {-.6, 0, .6}
-            %\node[input, ball color=orange!\x!blue] at ($(\x:3)!\y!90:(0,0)$) (i\xi\yi) {};
-            \node[input, fill=orange!\x!blue] at ($(\x:3)!\y!90:(0,0)$) (i\xi\yi) {};
+                \foreach \y [count=\yi] in {-.6, 0, .6}
+                    %\node[input, ball color=orange!\x!blue] at ($(\x:3)!\y!90:(0,0)$) (i\xi\yi) {};
+                    \node[input, fill=hriSec3Comp!\x!hriSec1Comp] at ($(\x:3)!\y!90:(0,0)$) (i\xi\yi) {};
 
-            \node[draw,dashed,fit=(i11)(i12)(i13)] (modA) {};
-            \node[draw,dashed,rotate fit=120,fit=(i21)(i22)(i23)] (modB) {};
-            \node[draw,dashed,rotate fit=60,fit=(i31)(i32)(i33)] (modC) {};
+            \node[draw,rounded corners, fit=(i11)(i12)(i13)] (modA) {};
+            \node[draw,rounded corners, rotate fit=120,fit=(i21)(i22)(i23)] (modB) {};
+            \node[draw,rounded corners, rotate fit=60,fit=(i31)(i32)(i33)] (modC) {};
 
-            \node at (190:5.5) {Modalities} edge[->] (modB) edge[->] (modC);
+            \node at (180:5.5) {Modalities} edge[->] (modB) edge[->] (modC);
             \node at (-40:6) {Input\\units} edge[->] (i13) edge[->] (i31);
 
-            \path[draw,dashed, red!50!black, thick]  (i23) -- (i11) -- (i31) -- (i23);
-            \path[draw,dotted, red!50!black, thick] (i23) -- (i12) -- (i32) -- (i23);
-            \path[draw, red!50!black] (i21) -- (i13) -- (i33) -- (i21);
+            \path[draw,dashed, hriSec3Dark, thick]  (i23) -- (i11) -- (i31) -- (i23);
+            \path[draw,dotted, hriSec3Dark, thick] (i23) -- (i12) -- (i32) -- (i23);
+            \path[draw, hriSec3Dark] (i21) -- (i13) -- (i33) -- (i21);
 
             \node at (1,1) {Associative\\links};
         \end{tikzpicture}
@@ -237,7 +286,7 @@ symbolic, sub-symbolic, hybrid, ...)?}
 
 \begin{frame}{Cross-disciplinary ``Impedance Matching''}
 
-    The choice of a computational model impacts how legible the architecture is
+    The choice of a computational model impacts how {\Medium legible} the architecture is
     to other disciplines:
 
     \begin{itemize}
@@ -248,7 +297,18 @@ symbolic, sub-symbolic, hybrid, ...)?}
             is hardly a biologically inspired neural technique)
     \end{itemize}
     
-    {\Medium Be aware of the ``epistemic impedance''}
+    {\Medium $\Rightarrow$ ``epistemic impedance''}
+
+    \uncover<2>{
+    Other disciplines are mostly agnostic: cognitive psy., developmental psy.,...
+    }
+
+    \uncover<3>{
+        Also relevant to the nature of {\Medium predictions} you want to
+        generate or test (eg, reaction time vs language competencies).
+    }
+
+
 \end{frame}
 
 \begin{frame}{Hybrid architectures}
