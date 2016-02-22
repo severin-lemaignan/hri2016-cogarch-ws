@@ -78,7 +78,7 @@ symbolic, sub-symbolic, hybrid, ...)?}
 %{
 %\paper{Lemaignan et al., {\Medium Towards Grounding Human-Robot Interaction}, 2012}
 
-\begin{frame}{Symbolic architectures}
+\begin{frame}{Symbolic architectures for Interaction}
 
 \resizebox{\paperwidth}{!}{%
 
@@ -91,12 +91,10 @@ symbolic, sub-symbolic, hybrid, ...)?}
     label/.style={midway, align=center, font=\scriptsize, fill=white}]
 
   %%% ORO
-    \node at (0,0)[skill, ultra thick, fill=hriSec2Dark!50] (oro) {{\Medium Knowledge
-    base}\\ (typically, a symbolic blackboard)};
+    \node at (0,0)[skill, ultra thick, fill=hriSec2Dark!50] (oro) {{\Medium Memory} knowledge base(s)\\ \footnotesize typically a symbolic blackboard};
   
   %%% HATP
-    \node at (-6, 2.5)[skill, fill=hriSec1!50] (hatp) {{\Medium Task planner}\\(hopefully
-    human-aware)};
+    \node at (-6, 2.5)[skill, fill=hriSec1!50] (hatp) {{\Medium Task planner}\\ \footnotesize ideally human-aware};
   
   %%% DIALOGS
     \node at (-6, -3) [skill, fill=hriSec3Dark!50] (dialogs) {{\Medium Multi-modal
@@ -160,17 +158,27 @@ symbolic, sub-symbolic, hybrid, ...)?}
 \end{tikzpicture}
 }
 \begin{flushright}
-\scriptsize -- taken from \cite{lemaignan2012towards}
+\scriptsize -- based on \cite{lemaignan2012towards}
 \end{flushright}
 \end{frame}
-%}
+
+\begin{frame}{...add your module!}
+
+    \begin{itemize}
+        \item Internal simulation (HAMMER)
+        \item Mental Imagery (SOAR), Pre-supposition accommodation (GSM)
+        \item Emotion recognition/generation
+        \item ...
+    \end{itemize}
+\end{frame}
+
 
 \begin{frame}{Highlights}
 
     \begin{itemize}
-        \item {\Medium explicit}, {\Medium high-level semantics} (good for NLP!)
-        \item appreciated by software engineers (loose coupling)
+        \item {\Medium explicit}, {\Medium high-level semantics} (good for NLP for instance!)
         \item {\Medium well-established theoretical grounds} in formal logics
+        \item good engineering properties (modular, loose coupling,...)
     \end{itemize}
     
     \only<2>{
@@ -285,6 +293,20 @@ symbolic, sub-symbolic, hybrid, ...)?}
 
 \imageframe[black]{}{era}
 
+\begin{frame}{Highlights}
+    \begin{itemize}
+        \item often {\Medium principled approaches}
+        \item {\Medium learning} is intrinsic and fundamental
+        \item {\Medium interesting features} come for free (eg concept priming)
+    \end{itemize}
+    \only<2>{
+    \begin{itemize}
+        \item applications to high-level socio-cognitive tasks only emerging
+        \item {\Medium still hard to deal with time!}
+    \end{itemize}
+}
+\end{frame}
+
 \begin{frame}{Cross-disciplinary ``Impedance Matching''}
 
     The choice of a computational model impacts how {\Medium legible} the architecture is
@@ -300,12 +322,13 @@ symbolic, sub-symbolic, hybrid, ...)?}
     
     {\Medium $\Rightarrow$ ``epistemic impedance''}
 
-    \uncover<2>{
-    Other disciplines are mostly agnostic: cognitive psy., developmental psy.,...
+    \only<2>{
+        Some disciplines are however mostly {\Medium agnostic}\\
+        cognitive psy., developmental psy.,...
     }
 
-    \uncover<3>{
-        Also relevant to the nature of {\Medium predictions} you want to
+    \only<3>{
+        Also relevant is the nature of {\Medium predictions} you want to
         generate or test (eg, reaction time vs language competencies).
     }
 
@@ -389,16 +412,15 @@ symbolic, sub-symbolic, hybrid, ...)?}
 
 \end{frame}
 
-\begin{frame}{``High-level'' cognition for interaction}
+\begin{frame}{A few internal cognitive functions}
 
     \begin{table}[]
-        \begin{tabularx}{\linewidth}{lll}
+        \begin{tabularx}{\linewidth}{lp{4.5cm}p{4.5cm}}
             \toprule
-            {\Medium Function} & {\Medium Symbolic}  & {\Medium Sub-symbolic}\\
+                     & {\Medium Symbolic}  & {\Medium Sub-symbolic}\\
             \midrule
-            Conceptualization & Use Arial instead of Flama \tabularnewline
-            & Math formula typeset in sans-serif \tabularnewline
-               \texttt{nosectionpages} & No inter-section pages \tabularnewline
+            {\Medium Concepts} & taxonomies, \newline external knowledge integration & conceptualization \\
+            {\Medium Memory}   & facts storage & associative memory,\newline priming \\
             \bottomrule
         \end{tabularx}
         \label{tab:options}
@@ -406,14 +428,27 @@ symbolic, sub-symbolic, hybrid, ...)?}
 \end{frame}
 
 \begin{frame}{Hybrid architectures}
-    {\Medium What about the bridges?}\par
-    
-    Does {\Medium hybrid architecture} means ``a bit of
-    both with bridges in the middle'', or may it be an independant principled
-    model?
+
+    The {\Medium computational functionalism} argument~\cite{vernon2014artifical}:
+    \begin{quote}
+        \doublequoted{the physical realization of the computational model is inconsequential to the model}
+    \end{quote}
+
+    \uncover<2>{
+        Embodied cognition takes the opposite view.\par
+        
+        Some see the symbolic/sub-symbolic questions as an instantiation of this argument.
+    }
+
 \end{frame}
 
 \begin{frame}{Discussion directions}
+
+    \begin{itemize}
+        \item Does {\Medium hybrid architecture} means ``a bit of
+    both with bridges in the middle'', or may it be an independent principled
+    model?
+    \end{itemize}
 
     35 minutes of open discussion, plus:
     \refToContrib{Paul's presentation (15 min)}
@@ -441,6 +476,13 @@ symbolic, sub-symbolic, hybrid, ...)?}
     \newblock \doublequoted{Cognitive Architecture for HRI: Towards behavioural
     alignment}
     \newblock 2013
+
+    \beamertemplatebookbibitems
+    \bibitem{vernon2014artifical}
+    D. Vernon
+    \newblock \doublequoted{Artificial Cognitive Systems}
+    \newblock 2013
+
 
   \end{thebibliography}
 \end{frame}
