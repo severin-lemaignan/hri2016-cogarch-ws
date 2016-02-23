@@ -80,15 +80,13 @@ symbolic, sub-symbolic, hybrid, ...)?}
 
 \begin{frame}{General perspectives}
 
-     \highlight{\centering Support thinking about robot programming \\in term of socio-cognitive skills}
+    \highlight{\centering Support modelling (human) social cognition\\\scriptsize(application to robots nice to have)}
 
-    \uncover<2>{
         \vspace{2em}
         or...\\
         \vspace{1em}
 
-        \highlight{\centering Support modelling (human) social cognition\\\scriptsize(applicability to robots would be nice as well)}
-    }
+        \highlight{\centering Support thinking about robot programming \\in term of socio-cognitive skills}
 
 \end{frame}
 %{
@@ -178,7 +176,7 @@ symbolic, sub-symbolic, hybrid, ...)?}
 \end{flushright}
 \end{frame}
 
-\begin{frame}{...add your module!}
+\begin{frame}{...pick up your options!}
 
     \begin{itemize}
         \item Internal simulation (HAMMER)
@@ -204,6 +202,7 @@ symbolic, sub-symbolic, hybrid, ...)?}
         \item {\Medium fundamentally top-down} approach $\Rightarrow$ somewhat difficult to match with
             the constructive approach of developmental psychology
         \item {\Medium learning} is an {\Medium after-thought}
+        \item representation of {\Medium uncertainty not natural}
         \item {\Medium hard to deal with time} (chronicles, fluents,...?)
     \end{itemize}
     }
@@ -301,53 +300,11 @@ symbolic, sub-symbolic, hybrid, ...)?}
     \end{itemize}
     \only<2>{
     \begin{itemize}
+        \item principled approach brings {\Medium predictive power}
         \item applications to high-level socio-cognitive tasks only emerging
         \item {\Medium still hard to deal with time!}
     \end{itemize}
 }
-\end{frame}
-
-\begin{frame}{Cross-disciplinary ``Impedance Matching''}
-
-    The choice of a computational model impacts how {\Medium legible} the architecture is
-    to other disciplines:
-
-    \begin{itemize}
-        \item {\Medium psycholinguistics} will be more comfortable manipulating
-            symbolic architectures;
-        \item {\Medium neurosciences} may be more comfortable with certain
-            sub-symbolic approaches (but not all of them: deep learning 
-            is hardly a biologically inspired neural technique)
-    \end{itemize}
-    
-    {\Medium $\Rightarrow$ ``epistemic impedance''}
-
-    \only<2>{
-        Some disciplines are however mostly {\Medium agnostic}\\
-        cognitive psy., developmental psy.,...
-    }
-
-    \only<3>{
-        Also relevant is the nature of {\Medium predictions} you want to
-        generate or test (eg, reaction time vs language competencies).
-    }
-
-
-\end{frame}
-
-\begin{frame}{A few internal cognitive functions}
-
-    \begin{table}[]
-        \begin{tabularx}{\linewidth}{lp{4.5cm}p{4.5cm}}
-            \toprule
-                     & {\Medium Symbolic}  & {\Medium Sub-symbolic}\\
-            \midrule
-            {\Medium Concepts} & taxonomies, \newline external knowledge integration & conceptualization \\
-            {\Medium Memory}   & facts storage & associative memory,\newline priming \\
-            \bottomrule
-        \end{tabularx}
-        \label{tab:options}
-    \end{table}
 \end{frame}
 
 \begin{frame}{Hybrid architectures}
@@ -490,21 +447,114 @@ symbolic, sub-symbolic, hybrid, ...)?}
 
 \end{frame}
 
+\begin{frame}{Cross-disciplinary ``Impedance Matching''}
+
+    The choice of a computational model impacts how {\Medium legible} the architecture is
+    to other disciplines:
+
+    \begin{itemize}
+        \item {\Medium psycholinguistics} will be more comfortable manipulating
+            symbolic architectures;
+        \item {\Medium neurosciences} may be more comfortable with certain
+            sub-symbolic approaches (but not all of them: deep learning 
+            is hardly a biologically inspired neural technique)
+    \end{itemize}
+    
+    {\Medium $\Rightarrow$ ``epistemic impedance''}
+
+    \only<2>{
+        Some disciplines are however mostly {\Medium agnostic}\\
+        cognitive psy., developmental psy.,...
+    }
+
+    \only<3>{
+        Also relevant is the nature of {\Medium predictions} you want to
+        generate or test (eg, reaction time vs language competencies).
+    }
+
+
+\end{frame}
+
+\begin{frame}{A few internal cognitive functions}
+
+    \begin{table}[]
+        \begin{tabularx}{\linewidth}{lp{4.5cm}p{4.5cm}}
+            \toprule
+                     & {\Medium Symbolic}  & {\Medium Sub-symbolic}\\
+            \midrule
+            {\Medium Concepts} & taxonomies, \newline external knowledge integration & conceptualization \\
+            {\Medium Memory}   & facts storage & associative memory,\newline priming \\
+            {\Medium Planning}   & Plenty\newline (prototypically: HTN) & recurrent
+            networks~\cite{rueckert2016recurrent} \\
+            ... & & \\
+            \bottomrule
+        \end{tabularx}
+        \label{tab:options}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Side-to-side}
+
+    \scriptsize
+    \begin{multicols}{2}
+
+        \centering{\Medium Symbolic}
+
+    \begin{itemize}
+        \item {\Medium explicit}, {\Medium high-level semantics} (good for NLP for instance!)
+        \item {\Medium well-established theoretical grounds} in formal logics
+        \item good engineering properties (modular, loose coupling,...)
+        \item {\Medium very successful} so far
+        \item {\Medium fundamentally top-down} approach $\Rightarrow$ somewhat difficult to match with
+            the constructive approach of developmental psychology
+        \item {\Medium learning} is an {\Medium after-thought}
+        \item representation of {\Medium uncertainty not natural}
+        \item {\Medium hard to deal with time} (chronicles, fluents,...?)
+    \end{itemize}
+
+    \columnbreak
+
+    \centering{\Medium Sub-symbolic}
+
+    \begin{itemize}
+        \item often {\Medium principled approaches}
+        \item {\Medium learning} is intrinsic and fundamental
+        \item {\Medium interesting features} come for free (eg concept priming)
+        \item principled approach brings {\Medium predictive power}
+        \item applications to high-level socio-cognitive tasks only emerging
+        \item {\Medium still hard to deal with time!}
+    \end{itemize}
+
+    \end{multicols}
+\end{frame}
+
 \begin{frame}{Discussion directions}
 
     \begin{itemize}
-        \item Does {\Medium hybrid architecture} means ``a bit of
-    both with bridges in the middle'', or may it be an independent principled
-    model?
+
+    \item ``Unique Selling Propositions'' of each approach?
+    \item Does sHRI shed a particular light on the question?
+    \item Does {\Medium hybrid architecture} means ``a bit of
+        both with bridges in the middle'', or may it be an independent principled
+        model?
+    \item should we attempt to bridge?
+
     \end{itemize}
 
-    35 minutes of open discussion, plus:
-    \refToContrib{Paul's presentation (15 min)}
+    35 minutes of open discussion, plus one presentation
 
 \end{frame}
 
 \begin{frame}{Bibliography}
 \begin{thebibliography}{10}
+\footnotesize
+    \beamertemplatearticlebibitems
+    \bibitem{baxter2013cognitive}
+    P. Baxter, J. de Greeff, T. Belpaeme
+    \newblock \doublequoted{Cognitive Architecture for HRI: Towards behavioural
+    alignment}
+    \newblock 2013
+
 
     \beamertemplatearticlebibitems
     \bibitem{lemaignan2012towards}
@@ -519,11 +569,11 @@ symbolic, sub-symbolic, hybrid, ...)?}
     \newblock 2010
 
     \beamertemplatearticlebibitems
-    \bibitem{baxter2013cognitive}
-    P. Baxter, J. de Greeff, T. Belpaeme
-    \newblock \doublequoted{Cognitive Architecture for HRI: Towards behavioural
-    alignment}
-    \newblock 2013
+    \bibitem{rueckert2016recurrent}
+    A. Rueckert, D. Kappel, D. Tanneberg, D. Pecevski, J. Peters
+    \newblock \doublequoted{Recurrent Spiking Networks Solve Planning Tasks}
+    \newblock 2016
+
 
     \beamertemplatebookbibitems
     \bibitem{vernon2014artifical}
