@@ -1,0 +1,171 @@
+%!TEX program = xelatex
+
+\documentclass[compress]{beamer}
+%--------------------------------------------------------------------------
+% Common packages
+%--------------------------------------------------------------------------
+\usepackage[english]{babel}
+\usepackage{pgfpages} % required for notes on second screen
+\usepackage{graphicx}
+
+\usepackage{multicol}
+\usepackage{url}
+
+\usepackage{tabularx,ragged2e}
+\usepackage{booktabs}
+
+
+\usetheme{hri}
+
+\usepackage{dtklogos} % must be loaded after theme
+\usepackage{tikz}
+\usetikzlibrary{calc,mindmap,backgrounds,positioning}
+
+\graphicspath{{figs/}}
+\setbeamercolor{refToContribCol}{bg=hriSec1Comp,fg=white}
+\newcommand{\refToContrib}[1]{%
+    \begin{beamercolorbox}[wd=\linewidth,ht=2ex,dp=0.7ex]{refToContribCol}%
+    \hspace{0.5em}$\hookrightarrow$ #1%
+    \end{beamercolorbox}%
+}%
+
+\title{CogArch for Social HRI}
+\subtitle{2nd Workshop on Cognitive Architectures for Social Human-Robot
+Interaction}
+\date{7th March 2016\\ {\tiny \url{https://sites.google.com/site/cogarch4socialhri2016/}}}
+\author{\scriptsize Paul Baxter, Séverin Lemaignan, Greg Trafton}
+\institute{\includegraphics[height=15mm]{plymouth-logo}}
+%\\Centre for Robotics \& Neural
+%Systems\\{\Medium Plymouth University}}
+
+%--------------------------------------------------------------------------
+% Notes settings
+%--------------------------------------------------------------------------
+%\setbeameroption{show notes on second screen}
+
+\begin{document}
+%--------------------------------------------------------------------------
+% Titlepage
+%--------------------------------------------------------------------------
+
+\maketitle
+
+\imageframe[black]{}{islands1}
+\imageframe[black]{}{islands2}
+\imageframe[black]{}{islands3}
+\imageframe[black]{}{islands4}
+
+
+\begin{frame}{Six questions to articulate the discussions}
+
+    \begin{enumerate}
+
+\item<1-> Why should you use cognitive architectures - how would they benefit your
+    research as a theoretical framework, a tool and/or a methodology?
+
+\item<2-> Should cognitive architectures for social interaction be inspired and/or
+    limited by models of human cognition?
+
+\item<3-> What are the functional requirements for a cognitive architecture to
+    support social interaction?
+
+\item<4-> How the requirements for social interaction would inform your choice of
+    the fundamental computational structures of the architecture (e.g. symbolic,
+    sub-symbolic, hybrid, ...)?
+
+\item<5-> What is the primary outstanding challenge in developing and/or applying
+    cognitive architectures to social HRI systems?
+
+\item<6-> Can you devise a social interaction scenario that current cognitive
+    architectures would likely fail, and why?
+
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Eight 15min presentations}
+\footnotesize
+    \begin{itemize}
+
+\item Sandra Devin, Grégoire Milliez, Michelangelo Fiore, Aurélie Clodic and
+    Rachid Alami -- {\Medium Some essential skills and their combination in an
+    architecture for a cognitive and interactive robot}
+
+\item J. Ignacio Serrano and M. Dolores Del Castillo -- {\Medium The Three
+    Must-Get-Theres.  Technical, epistemological and ethical concerns about
+    Cognitive Architectures for social Interaction}
+
+\item Gabriel Ferrer -- {\Medium Associative Memories and Human-Robot Social
+    Interaction}
+
+\item Vasanth Sarathy, Jason Wilson, Thomas Arnold and Matthias Scheutz --
+    {\Medium Enabling Basic Normative HRI in a Cognitive Robotic Architectures}
+
+\item Liz Sonenberg, Tim Miller, Adrian Pearce, Paolo Felli, Christian Muise and
+    Frank Dignum -- {\Medium Social Planning for social HRI}
+
+    \item Nick Depalma and Cynthia Breazeal -- {\Medium NIMBUS: A Hybrid
+        Cloud-Crowd Realtime Architecture for Visual Learning in Interactive
+    Domains}
+
+\item Alexis Jacq, Wafa Johal, Pierre Dillenbourg and Ana Paiva -- {\Medium
+    Cognitive Architecture for Mutual Modelling}
+
+\item Paul Baxter -- {\Medium Memory-Centred Cognitive Architectures for Robots
+    Interacting Socially with Humans}
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[plain]{}
+    \centering
+    {\Medium Plenty of time for discussions!}
+\end{frame}
+
+\begin{frame}{Proposed structure}
+    \centering
+    {\Medium Six discussions}\par
+    \uncover<2->{Paul/Séverin give a short (10min) introduction to the question}\par
+    \uncover<3->{35min of open discussion...}\par
+    \uncover<4->{...interleaved with one or two presentations}\par
+
+\end{frame}
+
+
+\begin{frame}{Programme}
+
+    \begin{table}[]
+        \begin{tabularx}{\linewidth}{lp{5.5cm}l}
+            \toprule
+            {\Medium 9:00 -- 9:15} & Introduction \\
+            {\Medium 9:15 -- 10:30} & {\Medium\doublequoted{Cognitive Architectures?}} &
+                                      P1, P2 \\
+            \midrule
+            Coffee break & \\
+            \midrule
+            {\Medium 11:00 -- 12:00} & {\Medium\doublequoted{Inspiration from humans?}} & P3 \\
+            \midrule
+            Lunch & \\
+            \midrule
+            {\Medium 13:00 -- 14:00} & {\Medium\doublequoted{Functional Requirements}} & P4 \\
+            {\Medium 14:00 -- 15:00} & {\Medium\doublequoted{Computational Structures}} & P5 \\
+            \midrule
+            Coffee break & \\
+            \midrule
+            {\Medium 15:30 -- 16:30} & {\Medium\doublequoted{Challenges of social HRI}} & P6 \\
+            {\Medium 16:30 -- 17:45} & {\Medium\doublequoted{Social interaction scenarios}} & P7, P8 \\
+            \midrule
+            {\Medium $\rightarrow$ 18:00} & Wrap-up \\
+            \bottomrule
+        \end{tabularx}
+        \label{tab:options}
+    \end{table}
+
+\end{frame}
+
+\end{document}
+
+
+
+
+
+
