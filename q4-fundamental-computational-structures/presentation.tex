@@ -39,6 +39,22 @@
     \end{beamercolorbox}%
 }%
 
+\newsavebox{\som}
+\savebox{\som}{%
+    \begin{tikzpicture}[
+        input/.style={draw,circle,inner sep=0pt,minimum size=0.25cm}
+    ]
+        \newcounter{colour}
+        \setcounter{colour}{0}
+        \foreach \x in {-3, -2, ..., 3}
+        \foreach \y in {3, 2, ..., -3}{
+            %\node[draw, circle, shading=sphere] at ({(\x + 0.4*\y)/2.2}, {\y/4}) {};
+            \pgfmathsetcounter{colour}{((sin(deg(\x)) * sin(deg(\y)))+1)*50}
+            %\shade[ball color=green!\thecolour!red] ({(\x + 0.4*\y)/2.2}, {\y/4}) circle (.2cm);
+            \node[input, fill=hriSec2!\thecolour!hriSec3] at ({(\x + 0.4*\y)/2.2}, {\y/4}) {};
+        };
+    \end{tikzpicture}%
+}
 
 %--------------------------------------------------------------------------
 % General presentation settings
@@ -208,22 +224,6 @@ symbolic, sub-symbolic, hybrid, ...)?}
     \only<1>{
 
         \resizebox{0.7\linewidth}{!}{%
-        \newsavebox{\som}
-        \savebox{\som}{%
-            \begin{tikzpicture}[
-                input/.style={draw,circle,inner sep=0pt,minimum size=0.25cm}
-            ]
-                \newcounter{colour}
-                \setcounter{colour}{0}
-                \foreach \x in {-3, -2, ..., 3}
-                \foreach \y in {3, 2, ..., -3}{
-                    %\node[draw, circle, shading=sphere] at ({(\x + 0.4*\y)/2.2}, {\y/4}) {};
-                    \pgfmathsetcounter{colour}{((sin(deg(\x)) * sin(deg(\y)))+1)*50}
-                    %\shade[ball color=green!\thecolour!red] ({(\x + 0.4*\y)/2.2}, {\y/4}) circle (.2cm);
-                    \node[input, fill=hriSec2!\thecolour!hriSec3] at ({(\x + 0.4*\y)/2.2}, {\y/4}) {};
-                };
-            \end{tikzpicture}%
-        }
 
         \begin{tikzpicture}[
                 >=latex,
@@ -428,6 +428,131 @@ symbolic, sub-symbolic, hybrid, ...)?}
 \end{frame}
 
 \begin{frame}{Hybrid architectures}
+
+    \only<1>{What about...}
+    \only<3>{or...}
+    \only<5>{or even...}
+    \only<2,4,6>{
+\resizebox{\paperwidth}{!}{%
+
+\tikzset{subpart/.style={draw, font=\scriptsize, fill opacity=0.5, text opacity=1, fill=white!50}}
+\begin{tikzpicture}[
+    >=latex,
+    every edge/.style={draw, very thick},
+    skill/.style={draw, rounded corners, align=center, inner sep=5pt, fill=black!20},
+    stmt/.style={align=center, font=\Medium},
+    label/.style={midway, align=center, font=\scriptsize, fill=white}]
+
+  %%% ORO
+    \only<2>{
+        \node at (0,0)[skill, ultra thick, fill=hriSec2Dark!50] (oro) {{\Medium Memory} knowledge base(s)\\ \footnotesize typically a symbolic blackboard};
+    }
+    \only<4,6>{
+    \node at (0,0)[skill, ultra thick, fill=hriSec2Dark!50] (oro) {
+            \resizebox{0.4\linewidth}{!}{%
+        \begin{tikzpicture}[
+                >=latex,
+                every edge/.style={draw, very thick},
+                every node/.style={font=\Medium,align=center},
+                input/.style={draw,circle, inner sep=0pt,minimum size=0.6cm}
+            ]
+
+            % draw the units
+            \foreach \x [count=\xi] in {0, 120, 240}
+                \foreach \y [count=\yi] in {-.6, 0, .6}
+                    %\node[input, ball color=orange!\x!blue] at ($(\x:3)!\y!90:(0,0)$) (i\xi\yi) {};
+                    \node[input, fill=hriSec3Comp!\x!hriSec1Comp] at ($(\x:3)!\y!90:(0,0)$) (i\xi\yi) {};
+
+            \node[draw,rounded corners, fit=(i11)(i12)(i13)] (modA) {};
+            \node[draw,rounded corners, rotate fit=120,fit=(i21)(i22)(i23)] (modB) {};
+            \node[draw,rounded corners, rotate fit=60,fit=(i31)(i32)(i33)] (modC) {};
+
+            \path[draw,dashed, hriSec3Dark, thick]  (i23) -- (i11) -- (i31) -- (i23);
+            \path[draw,dotted, hriSec3Dark, thick] (i23) -- (i12) -- (i32) -- (i23);
+            \path[draw, hriSec3Dark] (i21) -- (i13) -- (i33) -- (i21);
+
+            \node at (1,1) {Associative\\links};
+        \end{tikzpicture}
+    }
+
+    };
+  }
+
+  %%% HATP
+    \node at (-6, 2.5)[skill, fill=hriSec1!50] (hatp) {{\Medium Task planner}\\ \footnotesize ideally human-aware};
+  
+  %%% DIALOGS
+    \node at (-6, -3) [skill, fill=hriSec3Dark!50] (dialogs) {{\Medium Multi-modal
+    communication}\\NLP, back-channel,...};
+
+  %%% SPARK
+  \node at (4,-4)[skill, fill=hriSec3!50] (spark) {%
+      \begin{tikzpicture}
+          \node at (0,0) (geom) {{\Medium Situation Assessment} -- geometric \& temporal reasoning};
+        \node [subpart, below=0.2 of geom.south west, anchor=north west] (world-update) {Sensors fusion};
+        \node [subpart, right=0.2 of world-update] (geom-model) {Geometric model of the environment};
+        \node [subpart, right=0.2 of geom-model] (fact-prod) {Symbolic facts production};
+      \end{tikzpicture}
+    };
+
+  %%% MHP
+    \node at (9,0)[skill, fill=hriSec3CompDark!50] (mhp) {Motion and manipulation \\ planning};
+
+  %%% SHARY
+  \node at (4,4.5)[skill, fill=hriSec1Comp!50] (shary) {%
+      \begin{tikzpicture}
+        \node at (0,0) (exec) {\Medium Execution Controller};
+        \node [subpart, below=0.2 of exec.south west, anchor=north west] (plans) {Goal \& Plans \\ management};
+        \node [subpart, right=0.2 of plans] (sit-asses) {Situation assessment \\ and context management};
+        \node [subpart, right=0.2 of sit-asses] {Action instantiation, \\ execution and monitoring};
+      \end{tikzpicture}
+    };
+
+
+  %%% LOWLEVEL
+\only<2,6>{
+    \node [skill, below=0.7 of spark] (lowlevel1) {\usebox{\som}};
+    \node [skill, left=of lowlevel1] (lowlevel2) {\usebox{\som}};
+    \node [skill, right=of lowlevel1] (lowlevel) {\usebox{\som}};
+
+}
+\only<4>{
+  \node [skill, below=0.7 of spark] (lowlevel) {%
+      \begin{tikzpicture}
+        \node at (0,0) (sensori) {Sensorimotor layer};
+        %\node [subpart, below=0.2 of sensori.south west, anchor=north west, align=left] (perception) {{\bf Perception} \\ 2D markers, RGB-D, motion capture};
+        %\node [subpart, align=right, right=0.2 of perception] {{\bf Actuation} \\ Head's pan-tilt unit, grippers, arms, wheels};
+      \end{tikzpicture}
+  };
+  }
+
+  %%% Separation between deliberative layer and sensori-motor layer
+  \draw[dotted, thick] (-8,-5.5) -- (12, -5.5);
+
+  %%% Relations between components
+  \path (shary.340) edge [<->, bend left] (mhp);
+  \path (shary.west) edge [<->, bend right] (hatp);
+  \path (hatp) edge [<->, bend right] (oro.170);
+  \path (dialogs) edge [<->, bend left] (oro.190);
+  \path (spark.100) edge [->, bend right] (oro);
+  \path (spark.5) edge [->, bend right] (mhp);
+  \path (shary) edge [<->, bend left] (oro);
+  \path (shary) edge [<->, bend left] (spark);
+  \path (lowlevel) edge [->] (spark);
+  \only<2,6>{
+  \path (lowlevel1) edge [->] (spark);
+  \path (lowlevel2) edge [->] (spark);
+  }
+  \path (lowlevel.east) edge [<-, bend right=80, looseness=1.5] (shary.east);
+
+\end{tikzpicture}
+}
+}
+
+
+\end{frame}
+
+\begin{frame}{Hybrid architectures: epistemic arguments}
 
     The {\Medium computational functionalism} argument~\cite{vernon2014artifical}:
     \begin{quote}
