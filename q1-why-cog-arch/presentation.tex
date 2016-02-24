@@ -84,25 +84,43 @@ benefit your research as a theoretical framework, a tool and/or a methodology?}
     \vfill
     \columnbreak
 
-    {\Medium Model of Human Cognition}
+    {\Medium 1. Models of Human Cognition}
 
-    Recognition {\tiny \Medium facial, non-verbal acoustic, verbal features / sentient analysis}\\
-    Interpretation {\tiny \Medium empathy,...}
+    {\scriptsize -- Modelling (aspects of) human cognition \\-- Subsequent application to robots}
 
-    {\Medium Technical Integration}
+    {\Medium 2. Technical Integration}
 
-    Visual attention\\
-    Joint attention
+    {\scriptsize -- Define required functionality of robots \\-- Implement algorithms (etc) necessary}
 
-    {\Medium Architecture as Methodology}
+    {\Medium 3. CogArch as Methodology}
 
-    User modelling\\
-    (perceptual) theory of mind~\cite{lemaignan2015mutual}
+    {\scriptsize -- Formalising assumptions \\-- Integrating knowledge from multiple disciplines \\-- Iteratively updating architecture}
 
-    \refToContrib{Someone here...}
+    %\refToContrib{Someone here...}
 
     \end{multicols}
 \end{frame}
+
+\begin{frame}{Models of Human Cognition}    
+
+    \begin{itemize}
+        \item Model some human cognitive phenomenon, or preferably set of phenomena (typically based on human behavioural data)
+        \item Derive operating principles/algorithms that fulfil the requirements of the human behaviour
+        \item Verify/validate resulting model by fitting to existing human data, or making predictions of human behaviour
+        \item Apply model to robotics system
+    \end{itemize}
+    
+    Multiple examples in the literature of (aspects of) this process.
+
+\end{frame}
+
+
+\begin{frame}{Models of Human Cognition}    
+
+    \includegraphics[height=60mm]{cogarch-cognitive-integration}
+
+\end{frame}
+
 
 \begin{frame}{Architectures to model human cognition}
 
@@ -176,17 +194,59 @@ benefit your research as a theoretical framework, a tool and/or a methodology?}
 }
 
 \begin{flushright}
-\scriptsize -- taken from Sandra's contribution
+\scriptsize \refToContrib{From Sandra's contribution}
 \end{flushright}
 
 \end{frame}
 
-\imageframe[black]{}{islands1}
-\imageframe[black]{}{islands2}
-\imageframe[black]{}{islands3}
-\imageframe[black]{}{islands4}
 
-\begin{frame}{Bringing the strands together}
+\begin{frame}{Technical Integration}    
+
+    \begin{itemize}
+        \item Human-derived evidence (from perhaps multiple domains)
+        \item Define set of principles and constraints
+        \item Implement architecture on robot; run experiment(s)
+        \item Feed back results into principles and constraints; repeat
+    \end{itemize}
+    
+    This process not typically explicit in the literature, but rather implicit in the development of cognitive (model) architectures in psychology/CogSci for example.
+
+\end{frame}
+
+\begin{frame}{Technical Integration}    
+
+    \includegraphics[height=60mm]{cogarch-technical-integration}
+
+\end{frame}
+
+
+\begin{frame}{CogArch as Methodology}    
+
+    \begin{itemize}
+        \item Start with the application domain/problem to be solved
+        \item Define set of algorithms required to fulfil task
+        \item Implement architecture on robot
+        \item Run experiment
+    \end{itemize}
+    
+    Few examples in the literature of (aspects of) this process.
+
+\end{frame}
+
+\begin{frame}{CogArch as Methodology}    
+
+    \includegraphics[height=60mm]{cogarch-methodology}
+
+\end{frame}
+
+
+\imageframe[Islands of desired Cognitive Functionality]{figs/islands1}{}
+\imageframe[Linking islands together: the technical integration approach]{figs/islands2}{}
+\imageframe[Exploring common underlying principles of the islands]{figs/islands3}{}
+\imageframe[Constructing cognitive architectures from these principles]{figs/islands4}{}
+
+
+\begin{frame}{Discussion: why should you use CogArch for social HRI?}
     
 
     \begin{itemize}
