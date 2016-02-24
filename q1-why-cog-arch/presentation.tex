@@ -74,9 +74,9 @@ benefit your research as a theoretical framework, a tool and/or a methodology?}
             concept color=hriSec1,text=white]
             node[concept] {Cognitive Architectures}
                 [clockwise from=60]
-                child[concept color=hriSec3Dark,text=white] { node[concept]{Model} }
-                child[concept color=hriSec2Dark,text=white] { node[concept]{Integration} }
-                child[concept color=hriSec2CompDark,text=white] { node[concept] {Methodology}};
+                child[concept color=hriSec3Dark,text=white] { node[concept]{1. Model} }
+                child[concept color=hriSec2Dark,text=white] { node[concept]{2. Integration} }
+                child[concept color=hriSec2CompDark,text=white] { node[concept] {3. Methodology}};
 
 
         \end{tikzpicture}
@@ -101,7 +101,7 @@ benefit your research as a theoretical framework, a tool and/or a methodology?}
     \end{multicols}
 \end{frame}
 
-\begin{frame}{Models of Human Cognition}    
+\begin{frame}{1. Models of Human Cognition}    
 
     \begin{itemize}
         \item Model some human cognitive phenomenon, or preferably set of phenomena (typically based on human behavioural data)
@@ -115,7 +115,7 @@ benefit your research as a theoretical framework, a tool and/or a methodology?}
 \end{frame}
 
 
-\begin{frame}{Models of Human Cognition}    
+\begin{frame}{1. Models of Human Cognition}    
 
     \includegraphics[height=60mm]{cogarch-cognitive-integration}
 
@@ -200,7 +200,27 @@ benefit your research as a theoretical framework, a tool and/or a methodology?}
 \end{frame}
 
 
-\begin{frame}{Technical Integration}    
+\begin{frame}{2. Technical Integration}    
+
+    \begin{itemize}
+        \item Start with the application domain/problem to be solved
+        \item Define set of algorithms required to fulfil task
+        \item Implement architecture on robot
+        \item Run experiment
+    \end{itemize}
+    
+	A few examples in the literature of (aspects of) this process.
+
+\end{frame}
+
+\begin{frame}{2. Technical Integration}    
+
+    \includegraphics[height=60mm]{cogarch-technical-integration}
+
+\end{frame}
+
+
+\begin{frame}{3. CogArch as Methodology}    
 
     \begin{itemize}
         \item Human-derived evidence (from perhaps multiple domains)
@@ -210,30 +230,10 @@ benefit your research as a theoretical framework, a tool and/or a methodology?}
     \end{itemize}
     
     This process not typically explicit in the literature, but rather implicit in the development of cognitive (model) architectures in psychology/CogSci for example.
-
-\end{frame}
-
-\begin{frame}{Technical Integration}    
-
-    \includegraphics[height=60mm]{cogarch-technical-integration}
-
-\end{frame}
-
-
-\begin{frame}{CogArch as Methodology}    
-
-    \begin{itemize}
-        \item Start with the application domain/problem to be solved
-        \item Define set of algorithms required to fulfil task
-        \item Implement architecture on robot
-        \item Run experiment
-    \end{itemize}
     
-    Few examples in the literature of (aspects of) this process.
-
 \end{frame}
 
-\begin{frame}{CogArch as Methodology}    
+\begin{frame}{3. CogArch as Methodology}    
 
     \includegraphics[height=60mm]{cogarch-methodology}
 
@@ -246,7 +246,7 @@ benefit your research as a theoretical framework, a tool and/or a methodology?}
 \imageframe[Constructing cognitive architectures from these principles]{figs/islands4}{}
 
 
-\begin{frame}{Discussion: why should you use CogArch for social HRI?}
+\begin{frame}{Discussion: why use CogArch for social HRI?}
     
 
     \begin{itemize}
