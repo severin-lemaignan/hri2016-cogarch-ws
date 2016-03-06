@@ -37,7 +37,7 @@
 \title{Functional Requirements}
 \subtitle{Q3 -- What are the functional requirements for a cognitive
 architecture to support social interaction?}
-\date{}
+\date{7th March 2016\\ {\tiny \url{https://sites.google.com/site/cogarch4socialhri2016/}}}
 \author{}
 \institute{\includegraphics[height=15mm]{plymouth-logo}}
 %\\Centre for Robotics \& Neural
@@ -55,8 +55,7 @@ architecture to support social interaction?}
 
 \maketitle
 
-%\imageframe[Children playing with\\the Ranger robot]{photo-fullscreen.jpg}
-\imageframe{photo-fullscreen.jpg}
+\imageframe{}{photo-fullscreen.jpg}
 
 \begin{frame}{Cognitive Architecture?}
 \centering
@@ -126,7 +125,7 @@ architecture to support social interaction?}
     \end{exampleblock}
     \vspace{2em}
     \uncover<2>{
-        At this stage, we should not commit to any architecture,\\nor internal mechanism
+        We do not want to commit\\ to any specific architecture, nor internal mechanism
     }
 
 
@@ -237,34 +236,41 @@ architecture to support social interaction?}
             \path[small mindmap, 
                 level 1 concept/.append style={sibling angle=360/6}, 
                 level 2 concept/.append style={sibling angle=60}, 
-            concept color=hriWarmGreyLight,text=hriWarmGreyDark]
-            node[concept] {Social\\Cognition in HRI}
+            concept color=white,text=hriWarmGreyDark]
+            node[concept] {\Medium Social\\Cognition in HRI}
             [clockwise from=30]
             child[concept color=hriSec1,text=white] { node[concept] (percept) {Perception of Human's State}
                 [clockwise from=120]
                 child[concept color=hriSec3Dark,text=white] { node[concept]{Emotions} }
                 child[concept color=hriSec2Dark,text=white] { node[concept]{Attention} }
-                child[concept color=hriSec2CompDark,text=white] { node[concept] {Inference of mental models} }
+                child[concept color=hriSec2CompDark,text=white] { node[concept]
+                {Inference of mental models} };
             }
             child[concept color=hriSec2Comp,text=white,grow=-30] { node[concept] (knowledge) {Social Knowledge} 
                 [counterclockwise from=-120]
                 child[concept color=hriSec1CompDark,text=white] { node[concept] {Social rules} }
                 child[concept color=hriSec3Comp,text=black] { node[concept] {Social context} }
-                child[concept color=hriSec3CompDark,text=white] { node[concept] {Common-sense} }
+                child[concept color=hriSec3CompDark,text=white] { node[concept]
+                {Common-sense} };
             }
             child[concept color=hriSec3Comp,text=black, grow=-120] { node[concept] (comm) {Communication} 
                 [counterclockwise from=180]
                 child[concept color=hriSec1CompDark,text=white] { node[concept] {Verbal} }
-                child[concept color=hriSec1Dark,text=white] { node[concept] {Non-verbal} }
+                child[concept color=hriSec1Dark,text=white] { node[concept]
+                {Non-verbal} };
             }
             child[concept color=hriSec3,text=white,grow=180] { node[concept] (dynamics) {Interaction Dynamics} 
                 [clockwise from=180]
-                child[concept color=hriSec2Dark,text=white] { node[concept] {Long-term interaction} }
+                child[concept color=hriSec2Dark,text=white] { node[concept]
+                {Long-term interaction} };
             }
-            child[concept color=hriSec2,text=black, grow=120] { node[concept] (action) {Human-aware actions} 
-                [counterclockwise from=120]
+            child[concept color=hriSec2,text=black, grow=120] { node[concept]
+                (action) {Performing with humans} 
+                [counterclockwise from=80]
                 child[concept color=hriSec2CompDark,text=white] { node[concept] {Action, behaviour recognition} }
-                child[concept color=hriSec3,text=white] { node[concept] {Joint actions} }
+                child[concept color=hriSec1Dark,text=white] { node[concept] {Intention reading} }
+                child[concept color=hriSec3,text=white] { node[concept] {Joint
+                actions} };
             };
 
 
@@ -430,21 +436,22 @@ architecture to support social interaction?}
     \vfill
     \columnbreak
 
-
-
-
-    Behavioural alignment
+    Turn-taking\\
+    ...
 
     {\Medium Long-term interaction}
+    Managing post-novelty effect\\
+    Lifelong learning\\
+    Personalisation\\
+    ...?
 
-    Situated dialogue~\cite{kruijff2010situated}
 
     \end{multicols}
 
 \end{frame}
 
 
-\begin{frame}{Human-aware actions}
+\begin{frame}{Performing with humans}
 
     \begin{multicols}{2}
         \resizebox{0.7\columnwidth}{!}{%
@@ -456,21 +463,32 @@ architecture to support social interaction?}
                 level 1 concept/.append style={sibling angle=360/6}, 
                 level 2 concept/.append style={sibling angle=60}, 
             concept color=hriSec2,text=black]
-            node[concept] (action) {Human-aware actions} 
-                [counterclockwise from=-30]
+            node[concept] (action) {Performing with humans}
+                [clockwise from=60]
                 child[concept color=hriSec2CompDark,text=white] { node[concept] {Action, behaviour recognition} }
+                child[concept color=hriSec1Dark,text=white] { node[concept] {Intention reading} }
                 child[concept color=hriSec3,text=white] { node[concept] {Joint actions} };
         \end{tikzpicture}
     }
     \vfill
     \columnbreak
 
-
+    
 
 
     {\Medium Action \& Behaviour recognition}
 
+    Hidden Markov Models
+
+    {\Medium Intention reading}
+
+    Recognition of conventional situation (``the hitchhiker'')\\
+    ...
+
+
     {\Medium Joint action}
+    \refToContrib{Sandra's contribution}
+    
 
 
     \end{multicols}
@@ -487,9 +505,7 @@ architecture to support social interaction?}
         \item Reference tasks? Metrics? Benchmarks? At what level are they useful? (single function? group of functions? whole architecture only?)
     \end{itemize}
 
-    35 minutes of open discussion, plus:
-    \refToContrib{Vasanth's presentation (15 min)}
-    \refToContrib{Alexis' presentation (15 min)}
+    35 minutes of open discussion, plus one presentation.
 
 \end{frame}
 
