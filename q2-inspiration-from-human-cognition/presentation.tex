@@ -17,7 +17,7 @@
 %--------------------------------------------------------------------------
 % Load theme
 %--------------------------------------------------------------------------
-\usetheme[basicfont]{hri}
+\usetheme{hri}
 
 \usepackage{dtklogos} % must be loaded after theme
 \usepackage{tikz}
@@ -58,6 +58,32 @@ inspired and/or limited by models of human cognition?}
 %\imageframe[Children playing with\\the Ranger robot]{photo-fullscreen.jpg}
 %\imageframe{photo-fullscreen.jpg}
 
+
+\begin{frame}{}
+
+	Implicit assumption that it is the robot that should conform to the human...
+	
+	\begin{itemize}
+        \item Even though available evidence suggests that the converse will happen anyway: The human as the reference point
+    \end{itemize}
+    
+    Consequences:
+    
+    \begin{itemize}
+	
+	\item<2-> Overlap of perception/action competencies between human and robot 
+	
+	\item<3-> Predictability of robot behaviour to humans 
+	
+	\item<4-> Time-scales of the robot should be the same as that of the human 
+	
+	\end{itemize}
+	
+	\refToContrib{At least implicit in all contributions...}
+
+\end{frame}
+
+
 \begin{frame}{Role of human cognition?}
 
 	\begin{multicols}{2}
@@ -79,74 +105,106 @@ inspired and/or limited by models of human cognition?}
 
         \end{tikzpicture}
     }
+    
+    \vspace{0.5cm}
+    
+	\footnotesize{Multiple levels of human cognitive models \cite{Sun2005} }
+    
     \vfill
     \columnbreak
 
-    {\Medium 1. Inspiration from Human Cognition}
+    \uncover<2->{ {\Medium 1. Inspiration from Human Cognition}
 
-    {\scriptsize -- Modelling aspects of human cognition \\-- Subsequent application to robots}
+    {\scriptsize -- Modelling aspects of human cognition \\-- Subsequent application to robots} }
 
-    {\Medium 2. Take both Inspiration and Constraints from Human Cognition}
+    \uncover<3->{ {\Medium 2. Take both Inspiration and Constraints from Human Cognition}
 
-    {\scriptsize -- Examine human cognition limitations \\-- Constrain competencies of the robot}
+    {\scriptsize -- Examine human cognition limitations \\-- Constrain competencies of the robot} }
 
-    {\Medium 3. Base entirely on Human Cognition}
+    \uncover<4->{ {\Medium 3. Base entirely on Human Cognition}
 
-    {\scriptsize -- Functions and architecture structure \\-- Typically neural-inspired implementation}
-
-    \refToContrib{Someone here...}
+    {\scriptsize -- Functions and architecture structure \\-- Typically neural-inspired implementation} }
 
     \end{multicols}
+    
+    \refToContrib{All contributions address one or more of these points}
 
 \end{frame}
 
 
-%\begin{frame}{}
+\begin{frame}{}
 
-%    \centering
+    \begin{exampleblock}{No suggestion here that any of the three approaches are ``\textit{better}'' in any way!}
+        
+    \end{exampleblock}
+    \vspace{2em}
+    \centering
+    \uncover<2>{
+        \small{ \textit{Although maybe this should be a point for discussion...} }
+    }
 
-%    \begin{exampleblock}{Cognitive Architectures Building $\neq$ Science of Integration}
-%        The function may be a {\Medium byproduct} of the architecture
-%    \end{exampleblock}
-%    \vspace{2em}
-%    \uncover<2>{
-%        At this stage, we should not commit to any architecture,\\nor internal mechanism
-%    }
-
-%\end{frame}
+\end{frame}
 
 
 \begin{frame}{1. Inspiration from Human Cognition}
 
-	Dude...
+	\begin{itemize}
+        \item From the `top-down': start with `model' of human social behaviour (\textit{surface level}), apply to robot in terms of behaviour
+        \item Of greater importance is the human-like behaviour - mechanism of lesser importance
+        \item E.g.: requirements for robot social skills \cite{Dautenhahn2007}:\\-- contact, functionality, role, and social skills
+    \end{itemize}
+    
+    \refToContrib{Papers by Ignacio, Liz...}
 
 \end{frame}
 
 
 \begin{frame}{2. Also take Constraints from Human Cognition}
 
-	Dude...
+	\begin{itemize}
+        \item Instead of trying to maximise performance of the robot system,
+            intentionally inhibit performance to human-levels \\ {\footnotesize -- humans are definitely sub-optimal }
+        \item Can feed into the matching of human expectations to facilitate predictability
+        \item E.g.: modifying robot reaching to be more legible \cite{Dragan2013}, or label learning through embodiment \cite{Morse2010}
+        \item<2-> Possibility that insights from human cognition can lead to unexpected advantages: e.g. integration of `emotional' processing \cite{Gros2010}
+    \end{itemize}
+    
+    \refToContrib{Papers by Ignacio, Nick, Paul, ...}
 
 \end{frame}
 
 
 \begin{frame}{3. Base entirely on Human Cognition}
 
-	Dude...
+	\begin{itemize}
+		\item From the `bottom-up': create a model of the human cognitive system, and subsequently apply to HRI
+		\item Typically neural-based: neural networks at various levels of abstraction
+        \item E.g.: large-scale structured and embodied spiking neural networks \cite{Krichmar2002} \footnotesize{(not HRI!)}
+    \end{itemize}
+    
+    \refToContrib{Papers by Vasanth (DIRAC arch), ...}
 
 \end{frame}
 
 
-\begin{frame}{Discussion directions}
+\begin{frame}{Discussion points}
     
+	-- Since humans are highly adaptive anyway, should this be explicitly taken into account in the architecture, and how?
+	\refToContrib{Related to ToM, papers by Sandra, Liz \& Alexis}
 
-    \begin{itemize}
-        \item stuff
-    \end{itemize}
+	-- Along the same lines, many of the social interactions are actually based
+	on social conventions: should these be encoded in the architecture as well?
+    \refToContrib{Vasanth's contribution}
+	
+	-- Does the robot being predictable for human interactants imply the robot should behave (and/or \textit{cognate}) like humans?
+	\refToContrib{Paper by Gabriel vs Vasanth, ...}
+	
+	-- To achieve long-term social HRI, what are the relative benefits/shortfalls of the three general approaches?
+	\refToContrib{general...}
+	
+	\vspace{0.5cm}
 
-    40 minutes of open discussion, plus:
-    \refToContrib{someone (15 min)}
-    \refToContrib{possibly someone else (15 min)}
+    35 minutes of open discussion, plus one presentation.
 
 \end{frame}
 
@@ -155,33 +213,45 @@ inspired and/or limited by models of human cognition?}
 \begin{frame}{Bibliography}
 \begin{thebibliography}{10}
 
-    \beamertemplatearticlebibitems
-    \bibitem{lemaignan2015mutual}
-    S. Lemaignan, P. Dillenbourg
-    \newblock \doublequoted{Mutual Modelling: Inspiration for the Next Steps}
-    \newblock 2015
+	\tiny{
 
     \beamertemplatearticlebibitems
-    \bibitem{tenorth2010understanding}
-    M. Tenorth, D. Nyga, M. Beetz
-    \newblock \doublequoted{Understanding and Executing Instructions for Everyday Manipulation Tasks
-    from the World Wide Web}
+    \bibitem{Sun2005}
+    R. Sun
+    \newblock ``On levels of cognitive modeling''
+    \newblock 2005
+
+    \beamertemplatearticlebibitems
+    \bibitem{Krichmar2002}
+    J. Krichmar, G. Edelman
+    \newblock ``Machine Psychology: Autonomous behavior, perceptual categorisation and conditioning in a brain-based device''
+    \newblock 2002
+
+    \beamertemplatearticlebibitems
+    \bibitem{Dautenhahn2007}
+    K. Dautenhahn
+    \newblock ``Socially intelligent robots: dimensions of human-robot interaction''
+    \newblock 2007
+
+    \beamertemplatearticlebibitems
+    \bibitem{Dragan2013}
+    A. Dragan, K. Lee, S. Srinivasa
+    \newblock ``Legibility and predictability of robot motion''
+    \newblock 2013    
+    
+	\beamertemplatearticlebibitems
+    \bibitem{Gros2010}
+    C. Gros
+    \newblock ``Cognition and Emotion: Perspectives of a Closing Gap''
     \newblock 2010
-
+    
     \beamertemplatearticlebibitems
-    \bibitem{mavridis2015review}
-    N. Mavridis
-    \newblock \doublequoted{A review of verbal and non-verbal human–robot interactive communication}
-    \newblock 2015
-
-
-
-    \beamertemplatearticlebibitems
-    \bibitem{kruijff2010situated}
-    G.-J. M. Kruijff \emph{et al.}
-    \newblock \doublequoted{Situated dialogue processing for human-robot interaction}
+    \bibitem{Morse2010}
+    A. Morse, \textit{et al}
+    \newblock ``Epigenetic Robotics Architecture (ERA)''
     \newblock 2010
-
+    
+    }
 
 
   \end{thebibliography}
